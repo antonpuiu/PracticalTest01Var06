@@ -43,15 +43,14 @@ public class MainActivity extends AppCompatActivity {
                 Log.i("INFO","check[" + Integer.toString(i) + "] = " + nr[i].getText());
 
                 Intent intent = new Intent(main, PracticalTest01Var06SecondaryActivity.class);
-//                Intent intent = new Intent("ro.pub.cs.systems.eim.practicaltest01var06.intent.action.PracticalTest01Var06SecondaryActivity");
 
                 intent.putExtra(Constants.CHECK1_KEY, ck1.isChecked());
                 intent.putExtra(Constants.CHECK2_KEY, ck2.isChecked());
                 intent.putExtra(Constants.CHECK3_KEY, ck3.isChecked());
 
-                intent.putExtra(Constants.NR1_KEY, nr1.getText());
-                intent.putExtra(Constants.NR2_KEY, nr2.getText());
-                intent.putExtra(Constants.NR3_KEY, nr3.getText());
+                intent.putExtra(Constants.NR1_KEY, nr[0].getText());
+                intent.putExtra(Constants.NR2_KEY, nr[1].getText());
+                intent.putExtra(Constants.NR3_KEY, nr[2].getText());
 
                 startActivity(intent);
             }

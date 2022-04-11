@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -32,18 +33,33 @@ public class PracticalTest01Var06SecondaryActivity extends AppCompatActivity {
         Intent intent = getIntent();
         String text[] = new String[3];
         boolean check[] = new boolean[3];
+        Bundle extras = intent.getExtras();
 
-        text[0] = intent.getStringExtra(Constants.NR1_KEY);
-        text[1] = intent.getStringExtra(Constants.NR2_KEY);
-        text[2] = intent.getStringExtra(Constants.NR3_KEY);
+
+        text[0] = extras.getString(Constants.NR1_KEY);
+        text[1] = extras.getString(Constants.NR2_KEY);
+        text[2] = extras.getString(Constants.NR3_KEY);
+
+
+//        text[0] = intent.getStringExtra(Constants.NR1_KEY);
+//        text[1] = intent.getStringExtra(Constants.NR2_KEY);
+//        text[2] = intent.getStringExtra(Constants.NR3_KEY);
 
         check[0] = intent.getBooleanExtra(Constants.CHECK1_KEY, false);
         check[1] = intent.getBooleanExtra(Constants.CHECK2_KEY, false);
         check[2] = intent.getBooleanExtra(Constants.CHECK3_KEY, false);
 
+        Log.i("TEXT:", text[0]);
         ch = text[0];
+        int k = 1;
+
+        while (ch.equals("*")) {
+            ch = text[k++];
+        }
+
 
         for (int i = 1; i < 3; i++) {
+            Log.i("COUNTER:", "" + i);
             if (!ch.equals(text[i]) && !ch.equals("*")) {
                 gained = false;
                 break;
